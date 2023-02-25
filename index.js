@@ -43,7 +43,10 @@ app.get('/submit', async (req, res) => {
   try {
     const app = await getWeather(req.query.search);
     res.send(`<style>${cssFile}</style>${app}`);
-  } catch (error) {}
+  } catch (error) {
+    const app = await getWeather('london');
+    res.send(`<style>${cssFile}</style>${app}`);
+  }
 });
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
